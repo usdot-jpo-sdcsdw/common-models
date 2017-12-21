@@ -1,8 +1,17 @@
 package gov.dot.its.jpo.sdcsdw.message.creator;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.xml.bind.JAXBException;
+
+import gov.dot.its.jpo.sdcsdw.MessageTypes.AdvisorySituationData;
+import gov.dot.its.jpo.sdcsdw.MessageTypes.AdvisorySituationDataDistribution;
+import gov.dot.its.jpo.sdcsdw.MessageTypes.AdvisorySituationDataDistributionList;
 import gov.dot.its.jpo.sdcsdw.MessageTypes.DataReceipt;
 import gov.dot.its.jpo.sdcsdw.MessageTypes.DialogID;
 import gov.dot.its.jpo.sdcsdw.MessageTypes.ServiceResponse;
+import gov.dot.its.jpo.sdcsdw.xerjaxbcodec.XerJaxbCodec;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -38,10 +47,76 @@ public class MessageCreatorTest extends TestCase {
 
 	}
 
-	public void testCreateAdvisorySituationDataDistribution() {
-		assertTrue(true);
+	public void testCreateMultipleAdvisorySituationDataDistribution() {
+		// CREATE TEST ASD
+		List<AdvisorySituationData> asdList = new ArrayList<AdvisorySituationData>();
+		for (int i = 0; i < 800; i++) {
+			String rawXER = "<AdvisorySituationData><dialogID><advSitDataDep/></dialogID><seqID><data/></seqID><groupID>00000000</groupID><requestID>88D27197</requestID><timeToLive><week/></timeToLive><serviceRegion><nwCorner><lat>449984590</lat><long>-1110408170</long></nwCorner><seCorner><lat>411046740</lat><long>-1041113120</long></seCorner></serviceRegion><asdmDetails><asdmID>88D27197</asdmID><asdmType><tim/></asdmType><distType>10</distType><startTime><year>2017</year><month>12</month><day>1</day><hour>17</hour><minute>47</minute></startTime><stopTime><year>2018</year><month>12</month><day>1</day><hour>17</hour><minute>47</minute></stopTime><advisoryMessage>03805E001F5B70D07930EC9C236B00000000000F775D9B0301EA73E452D1539716C99E9D555100003F0BAD7580160307F82C5BF14005C00854E7C8A5A2A72E2D933D30579AAAA8B555508CE4539F22968A9CB8B64CF4C03F88600003E8F775D9B0</advisoryMessage></asdmDetails></AdvisorySituationData>";
+			AdvisorySituationData advSitData = null;
+			try {
+				advSitData = (AdvisorySituationData) XerJaxbCodec.XerToJaxbPojo(rawXER);
+			} catch (JAXBException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			asdList.add(advSitData);
+		}
+		
+		DialogID expectedDialog = new DialogID();
+		expectedDialog.setAdvSitDatDist("");
+		
+		AdvisorySituationDataDistributionList distList=MessageCreator.createAdvisorySituationDataDistribution(asdList, expectedDialog, "TESTGROUP", "TESTREQUEST");
+		
+		assertEquals(20,distList.getDistributionList().size());
 	}
 
+	public void testCreateSingleAdvisorySituationDataDistribution() {
+		// CREATE TEST ASD
+		List<AdvisorySituationData> asdList = new ArrayList<AdvisorySituationData>();
+		for (int i = 0; i < 40; i++) {
+			String rawXER = "<AdvisorySituationData><dialogID><advSitDataDep/></dialogID><seqID><data/></seqID><groupID>00000000</groupID><requestID>88D27197</requestID><timeToLive><week/></timeToLive><serviceRegion><nwCorner><lat>449984590</lat><long>-1110408170</long></nwCorner><seCorner><lat>411046740</lat><long>-1041113120</long></seCorner></serviceRegion><asdmDetails><asdmID>88D27197</asdmID><asdmType><tim/></asdmType><distType>10</distType><startTime><year>2017</year><month>12</month><day>1</day><hour>17</hour><minute>47</minute></startTime><stopTime><year>2018</year><month>12</month><day>1</day><hour>17</hour><minute>47</minute></stopTime><advisoryMessage>03805E001F5B70D07930EC9C236B00000000000F775D9B0301EA73E452D1539716C99E9D555100003F0BAD7580160307F82C5BF14005C00854E7C8A5A2A72E2D933D30579AAAA8B555508CE4539F22968A9CB8B64CF4C03F88600003E8F775D9B0</advisoryMessage></asdmDetails></AdvisorySituationData>";
+			AdvisorySituationData advSitData = null;
+			try {
+				advSitData = (AdvisorySituationData) XerJaxbCodec.XerToJaxbPojo(rawXER);
+			} catch (JAXBException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			asdList.add(advSitData);
+		}
+		
+		DialogID expectedDialog = new DialogID();
+		expectedDialog.setAdvSitDatDist("");
+		
+		AdvisorySituationDataDistributionList distList=MessageCreator.createAdvisorySituationDataDistribution(asdList, expectedDialog, "TESTGROUP", "TESTREQUEST");
+		
+		assertEquals(1,distList.getDistributionList().size());
+	}
+	
+
+	public void testCreateSingleEmptyAdvisorySituationDataDistribution() {
+		// CREATE TEST ASD
+		List<AdvisorySituationData> asdList = new ArrayList<AdvisorySituationData>();
+		for (int i = 0; i < 0; i++) {
+			String rawXER = "<AdvisorySituationData><dialogID><advSitDataDep/></dialogID><seqID><data/></seqID><groupID>00000000</groupID><requestID>88D27197</requestID><timeToLive><week/></timeToLive><serviceRegion><nwCorner><lat>449984590</lat><long>-1110408170</long></nwCorner><seCorner><lat>411046740</lat><long>-1041113120</long></seCorner></serviceRegion><asdmDetails><asdmID>88D27197</asdmID><asdmType><tim/></asdmType><distType>10</distType><startTime><year>2017</year><month>12</month><day>1</day><hour>17</hour><minute>47</minute></startTime><stopTime><year>2018</year><month>12</month><day>1</day><hour>17</hour><minute>47</minute></stopTime><advisoryMessage>03805E001F5B70D07930EC9C236B00000000000F775D9B0301EA73E452D1539716C99E9D555100003F0BAD7580160307F82C5BF14005C00854E7C8A5A2A72E2D933D30579AAAA8B555508CE4539F22968A9CB8B64CF4C03F88600003E8F775D9B0</advisoryMessage></asdmDetails></AdvisorySituationData>";
+			AdvisorySituationData advSitData = null;
+			try {
+				advSitData = (AdvisorySituationData) XerJaxbCodec.XerToJaxbPojo(rawXER);
+			} catch (JAXBException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			asdList.add(advSitData);
+		}
+		
+		DialogID expectedDialog = new DialogID();
+		expectedDialog.setAdvSitDatDist("");
+		
+		AdvisorySituationDataDistributionList distList=MessageCreator.createAdvisorySituationDataDistribution(asdList, expectedDialog, "TESTGROUP", "TESTREQUEST");
+		
+		assertEquals(0,distList.getDistributionList().size());
+	}
+	
 	public void testCreateDataReceipt() {
 		DialogID expectedDialog = new DialogID();
 		expectedDialog.setAdvSitDatDist("");

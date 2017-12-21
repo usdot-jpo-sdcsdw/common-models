@@ -13,6 +13,7 @@ import gov.dot.its.jpo.sdcsdw.MessageTypes.AdvisoryBroadcast;
 import gov.dot.its.jpo.sdcsdw.MessageTypes.AdvisorySituationBundle;
 import gov.dot.its.jpo.sdcsdw.MessageTypes.AdvisorySituationData;
 import gov.dot.its.jpo.sdcsdw.MessageTypes.AdvisorySituationDataDistribution;
+import gov.dot.its.jpo.sdcsdw.MessageTypes.AdvisorySituationDataDistributionList;
 import gov.dot.its.jpo.sdcsdw.MessageTypes.AsdBundles;
 import gov.dot.its.jpo.sdcsdw.MessageTypes.AsdRecords;
 import gov.dot.its.jpo.sdcsdw.MessageTypes.AsdmType;
@@ -72,7 +73,7 @@ public class MessageCreator {
 		return serviceResponse;
 	}
 
-	public static AdvisorySituationDataDistribution createAdvisorySituationDataDistribution(
+	public static AdvisorySituationDataDistributionList createAdvisorySituationDataDistribution(
 			List<AdvisorySituationData> asdList, DialogID dialogIDObj, String groupID, String requestID) {
 		// Given a list of POJO ASDS
 		// DECODE THEM, CREATE ADVISORY BROADCASTS, PACKAGE!
@@ -80,6 +81,10 @@ public class MessageCreator {
 		List<AdvisoryBroadcast> broadcasts = extractTimsAndGenerateBroadcasts(asdList);
 		List<AdvisoryBroadcast> record = new ArrayList<AdvisoryBroadcast>();
 		List<AdvisorySituationBundle> bundles = new ArrayList<AdvisorySituationBundle>();
+
+		List<AdvisorySituationDataDistribution> distributionList = new ArrayList<AdvisorySituationDataDistribution>();
+		SeqID seqID = new SeqID();
+		seqID.setData("");
 
 		int bundlesMade = 0;
 		int recordsMade = 0;
@@ -95,25 +100,32 @@ public class MessageCreator {
 				asdRecords.setAdvisoryBroadcast(record.toArray(new AdvisoryBroadcast[record.size()]));
 				AdvisorySituationBundle bundle = new AdvisorySituationBundle();
 				bundle.setBundleNumber(Integer.toString(bundlesMade));
-				
-				bundle.setBundleId(String.format("%08X",bundleIdGenerator.nextInt()));
+
+				bundle.setBundleId(String.format("%08X", bundleIdGenerator.nextInt()));
 				bundle.setAsdRecords(asdRecords);
 				bundles.add(bundle);
 
 				record = new ArrayList<AdvisoryBroadcast>();
 				recordsMadeInThisBundle = 0;
-				
-				if(bundlesMade==MAX_BUNDLES_PER_DISTRIBUTION) {
-					//Can't make any more bundles in this distribution!
+
+				if (bundlesMade == MAX_BUNDLES_PER_DISTRIBUTION) {
+					// Can't make any more bundles in this distribution!
 					System.out.println("REACHED LIMIT OF BUNDLES PER DISTRIBUTION");
-					break;
+					AdvisorySituationDataDistribution advSitDataDist = createDistribution(bundles, bundlesMade,
+							dialogIDObj, groupID, requestID, recordsMade, seqID);
+					distributionList.add(advSitDataDist);
+
+					recordsMade = 0;
+					bundlesMade = 0;
+					bundles = new ArrayList<AdvisorySituationBundle>();
+
 				}
-				
+
 			}
 
 		}
 
-		if (bundlesMade!=MAX_BUNDLES_PER_DISTRIBUTION && record.size() > 0) {
+		if (record.size() > 0) {
 			System.out.println("HAVE SOME RECORDS LEFT OVER ADD A BUNDLE");
 			// we have some records that don't make a complete bundle by themselves
 			bundlesMade++;
@@ -121,27 +133,41 @@ public class MessageCreator {
 			asdRecords.setAdvisoryBroadcast(record.toArray(new AdvisoryBroadcast[record.size()]));
 			AdvisorySituationBundle bundle = new AdvisorySituationBundle();
 			bundle.setBundleNumber(Integer.toString(bundlesMade));
-			bundle.setBundleId(String.format("%08X",bundleIdGenerator.nextInt()));
+			bundle.setBundleId(String.format("%08X", bundleIdGenerator.nextInt()));
 			bundle.setAsdRecords(asdRecords);
 			bundles.add(bundle);
-			
-			
+
 		}
 
+		if (bundles.size() > 0) {
+			// we have some bundles that didn't make it into a distribution!
+			AdvisorySituationDataDistribution advSitDataDist = createDistribution(bundles, bundlesMade, dialogIDObj,
+					groupID, requestID, recordsMade, seqID);
+			distributionList.add(advSitDataDist);
+
+			recordsMade = 0;
+			bundlesMade = 0;
+			bundles = new ArrayList<AdvisorySituationBundle>();
+		}
+
+		AdvisorySituationDataDistributionList responseDistributionList = new AdvisorySituationDataDistributionList(
+				distributionList);
+		responseDistributionList.setRequestID(requestID);
+		return responseDistributionList;
+	}
+
+	private static AdvisorySituationDataDistribution createDistribution(List<AdvisorySituationBundle> bundles,
+			int bundlesMade, DialogID dialogIDObj, String groupID, String requestID, int recordsMade, SeqID seqID) {
 		AdvisorySituationDataDistribution advSitDataDist = new AdvisorySituationDataDistribution();
 		AsdBundles asdBundles = new AsdBundles();
 		asdBundles.setAdvisorySituationBundle(bundles.toArray(new AdvisorySituationBundle[bundles.size()]));
-
 		advSitDataDist.setAsdBundles(asdBundles);
 		advSitDataDist.setBundleCount(Integer.toString(bundlesMade));
 		advSitDataDist.setDialogID(dialogIDObj);
 		advSitDataDist.setGroupID(groupID);
 		advSitDataDist.setRequestID(requestID);
 		advSitDataDist.setRecordCount(Integer.toString(recordsMade));
-		SeqID seqID = new SeqID();
-		seqID.setData("");
 		advSitDataDist.setSeqID(seqID);
-
 		return advSitDataDist;
 	}
 
@@ -204,13 +230,33 @@ public class MessageCreator {
 		BroadcastInst bcastInst = new BroadcastInst();
 
 		BiDeliveryStart biDeliveryStart = new BiDeliveryStart();
-		biDeliveryStart.fillAllFields(startTime);
-		bcastInst.setBiDeliveryStart(biDeliveryStart);
-
 		BiDeliveryStop biDeliveryStop = new BiDeliveryStop();
-		biDeliveryStop.fillAllFields(stopTime);
-		bcastInst.setBiDeliveryStop(biDeliveryStop);
+		
+		if (startTime != null && stopTime != null) {
+			biDeliveryStart.fillAllFields(startTime);
+			biDeliveryStop.fillAllFields(stopTime);
+		}
+		
+		else {
+			//if start time and stop time were NOT defined, we've gotta do it ourselves!
+			Calendar now = GregorianCalendar.getInstance(TimeZone.getTimeZone("UTC"));
+			biDeliveryStart.setDay(Integer.toString(now.get(Calendar.DAY_OF_MONTH)));
+			biDeliveryStart.setHour(Integer.toString(now.get(Calendar.HOUR_OF_DAY)));
+			biDeliveryStart.setMinute(Integer.toString(now.get(Calendar.MINUTE)));
+			biDeliveryStart.setMonth(Integer.toString(now.get(Calendar.MONTH)));
+			biDeliveryStart.setYear(Integer.toString(now.get(Calendar.YEAR)));
+			
+			
+			biDeliveryStop.setDay(Integer.toString(now.get(Calendar.DAY_OF_MONTH)+7));
+			biDeliveryStop.setHour(Integer.toString(now.get(Calendar.HOUR_OF_DAY)));
+			biDeliveryStop.setMinute(Integer.toString(now.get(Calendar.MINUTE)));
+			biDeliveryStop.setMonth(Integer.toString(now.get(Calendar.MONTH)));
+			biDeliveryStop.setYear(Integer.toString(now.get(Calendar.YEAR)));
+			
+		}
 
+		bcastInst.setBiDeliveryStart(biDeliveryStart);
+		bcastInst.setBiDeliveryStop(biDeliveryStop);
 		BiEncryption biEncript = new BiEncryption();
 		if (ENCRYPTION) {
 			biEncript.setTrue("");
@@ -273,7 +319,6 @@ public class MessageCreator {
 		Expiration expiration = new Expiration();
 		Calendar now = GregorianCalendar.getInstance(TimeZone.getTimeZone("UTC"));
 		now.add(Calendar.MINUTE, expireInMin);
-		expiration.setDay(now.get(Calendar.DAY_OF_MONTH));
 		expiration.setYear(now.get(Calendar.YEAR));
 		expiration.setMonth(now.get(Calendar.MONTH) + 1);
 		expiration.setDay(now.get(Calendar.DAY_OF_MONTH));
@@ -296,4 +341,5 @@ public class MessageCreator {
 	private static final int ONE_DAY = 1000 * 60 * 60 * 24;
 	public static final int MAX_BROADCASTS_PER_RECORD = 10;
 	public static final int MAX_BUNDLES_PER_DISTRIBUTION = 4;
+	private static final String UTC_TIMEZONE	= "UTC";
 }

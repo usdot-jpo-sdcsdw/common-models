@@ -1,7 +1,4 @@
-package gov.dot.its.jpo.sdcsdw.XERHandler;
-
-import java.io.StringReader;
-import java.io.StringWriter;
+package gov.dot.its.jpo.sdcsdw.xerjaxbcodec;
 
 import javax.xml.bind.JAXBException;
 
@@ -10,7 +7,6 @@ import gov.dot.its.jpo.sdcsdw.MessageTypes.Destination;
 import gov.dot.its.jpo.sdcsdw.MessageTypes.DialogID;
 import gov.dot.its.jpo.sdcsdw.MessageTypes.SeqID;
 import gov.dot.its.jpo.sdcsdw.MessageTypes.ServiceRequest;
-import gov.dot.its.jpo.sdcsdw.xerjaxbcodec.XerJaxbCodec;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -129,8 +125,8 @@ public class XerJaxbCodecTest extends TestCase {
 			e.printStackTrace();
 		}
 
-		
-		//assertEquals(advSitDataDist.getAsdBundles().getAdvisorySituationBundle()[0].getBundleId() ,1);
+		// assertEquals(advSitDataDist.getAsdBundles().getAdvisorySituationBundle()[0].getBundleId()
+		// ,1);
 	}
 
 	public void testMarshallAdvisorySituationDataDistributionRequest() {

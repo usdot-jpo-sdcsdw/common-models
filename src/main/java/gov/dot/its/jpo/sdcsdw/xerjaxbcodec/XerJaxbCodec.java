@@ -44,13 +44,8 @@ public class XerJaxbCodec {
 		return writer.toString();
 	}
 
-	
 	public static String createSelfClosingTags(String xerToModify) {
 		return xerToModify.replaceAll("<([^>]*)><\\/\\1>", "<$1\\/>");
-	}
-	
-	public static void main(String[] args) {
-		System.out.println("Hello World!");
 	}
 
 	private static JAXBContext jaxbContext = null;
@@ -68,7 +63,7 @@ public class XerJaxbCodec {
 		try {
 			marshaller = jaxbContext.createMarshaller();
 			marshaller.setProperty(Marshaller.JAXB_FRAGMENT, true);
-			
+
 		} catch (JAXBException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

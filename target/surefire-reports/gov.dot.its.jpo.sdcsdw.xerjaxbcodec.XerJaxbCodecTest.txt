@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: gov.dot.its.jpo.sdcsdw.message.creator.MessageCreatorTest
+Test set: gov.dot.its.jpo.sdcsdw.xerjaxbcodec.XerJaxbCodecTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.492 sec
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.271 sec

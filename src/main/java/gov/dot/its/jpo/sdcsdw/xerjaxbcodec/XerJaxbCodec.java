@@ -54,7 +54,7 @@ public class XerJaxbCodec {
 
 	static {
 		try {
-			jaxbContext = JAXBContext.newInstance("gov.dot.its.jpo.sdcsdw.MessageTypes");
+			jaxbContext = JAXBContext.newInstance("gov.dot.its.jpo.sdcsdw.Models");
 		} catch (JAXBException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

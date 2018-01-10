@@ -2,11 +2,11 @@ package gov.dot.its.jpo.sdcsdw.xerjaxbcodec;
 
 import javax.xml.bind.JAXBException;
 
-import gov.dot.its.jpo.sdcsdw.MessageTypes.AdvisorySituationDataDistribution;
-import gov.dot.its.jpo.sdcsdw.MessageTypes.Destination;
-import gov.dot.its.jpo.sdcsdw.MessageTypes.DialogID;
-import gov.dot.its.jpo.sdcsdw.MessageTypes.SeqID;
-import gov.dot.its.jpo.sdcsdw.MessageTypes.ServiceRequest;
+import gov.dot.its.jpo.sdcsdw.Models.AdvisorySituationDataDistribution;
+import gov.dot.its.jpo.sdcsdw.Models.Destination;
+import gov.dot.its.jpo.sdcsdw.Models.DialogID;
+import gov.dot.its.jpo.sdcsdw.Models.SeqID;
+import gov.dot.its.jpo.sdcsdw.Models.ServiceRequest;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;

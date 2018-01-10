@@ -1,4 +1,4 @@
-# UDP Interface
+# Common Models
 
 This repository contains (1) The codec to convert from XML to POJO and vice versa, and (2) the necessary models.
 

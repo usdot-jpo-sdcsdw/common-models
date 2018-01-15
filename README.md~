@@ -13,7 +13,7 @@ This repository contains (1) The codec to convert from XML to POJO and vice vers
 
 #### Step 1 - Clone this repository
 ```
-git clone https://github.com/usdot-jpo-sdcsdw/common-models.git
+git clone <ADD LINK HERE>
 ```
 #### Step 2 - Build the application
 ```

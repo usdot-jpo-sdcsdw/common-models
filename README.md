@@ -27,14 +27,6 @@ mvn clean install
 * [Maven](https://maven.apache.org/) - Dependency Management
 
 
-## Contributing
-
-TODO
-
-## Versioning
-
-TODO
-
 
 ## License
 

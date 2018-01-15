@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+         <!-- XML Schema Generated from XML Document on Tue Dec 05 2017 16:05:06 GMT-0500 (EST) -->
+         <!-- with XmlGrid.net Free Online Service http://xmlgrid.net -->
+         <xs:element name="AdvisorySituationDataDistribution">
+               <xs:complexType>
+                     <xs:sequence>
+                           <xs:element name="dialogID">
+                                 <xs:complexType>
+                                       <xs:sequence>
+                                             <xs:element name="advSitDatDist"></xs:element>
+                                       </xs:sequence>
+                                 </xs:complexType>
+                           </xs:element>
+                           <xs:element name="seqID">
+                                 <xs:complexType>
+                                       <xs:sequence>
+                                             <xs:element name="data"></xs:element>
+                                       </xs:sequence>
+                                 </xs:complexType>
+                           </xs:element>
+                           <xs:element name="groupID" type="xs:int"></xs:element>
+                           <xs:element name="requestID" type="xs:string"></xs:element>
+                           <xs:element name="recordCount" type="xs:int"></xs:element>
+                           <xs:element name="bundleCount" type="xs:int"></xs:element>
+                           <xs:element name="asdBundles">
+                                 <xs:complexType>
+                                       <xs:sequence>
+                                             <xs:element name="AdvisorySituationBundle" maxOccurs="unbounded">
+                                                   <xs:complexType>
+                                                         <xs:sequence>
+                                                               <xs:element name="bundleNumber" type="xs:int"></xs:element>
+                                                               <xs:element name="bundleId" type="xs:string"></xs:element>
+                                                               <xs:element name="asdRecords">
+                                                                     <xs:complexType>
+                                                                           <xs:sequence>
+                                                                                 <xs:element name="AdvisoryBroadcast" maxOccurs="unbounded">
+                                                                                       <xs:complexType>
+                                                                                             <xs:sequence>
+                                                                                                   <xs:element name="messagePsid" type="xs:int"></xs:element>
+                                                                                                   <xs:element name="broadcastInst">
+                                                                                                         <xs:complexType>
+                                                                                                               <xs:sequence>
+                                                                                                                     <xs:element name="biType">
+                                                                                                                           <xs:complexType>
+                                                                                                                                 <xs:sequence>
+                                                                                                                                       <xs:element name="tim"></xs:element>
+                                                                                                                                 </xs:sequence>
+                                                                                                                           </xs:complexType>
+                                                                                                                     </xs:element>
+                                                                                                                     <xs:element name="biPriority" type="xs:int"></xs:element>
+                                                                                                                     <xs:element name="biDeliveryStart">
+                                                                                                                           <xs:complexType>
+                                                                                                                                 <xs:sequence>
+                                                                                                                                       <xs:element name="year" type="xs:int"></xs:element>
+                                                                                                                                       <xs:element name="month" type="xs:int"></xs:element>
+                                                                                                                                       <xs:element name="day" type="xs:int"></xs:element>
+                                                                                                                                       <xs:element name="hour" type="xs:int"></xs:element>
+                                                                                                                                       <xs:element name="minute" type="xs:int"></xs:element>
+                                                                                                                                 </xs:sequence>
+                                                                                                                           </xs:complexType>
+                                                                                                                     </xs:element>
+                                                                                                                     <xs:element name="biDeliveryStop">
+                                                                                                                           <xs:complexType>
+                                                                                                                                 <xs:sequence>
+                                                                                                                                       <xs:element name="year" type="xs:int"></xs:element>
+                                                                                                                                       <xs:element name="month" type="xs:int"></xs:element>
+                                                                                                                                       <xs:element name="day" type="xs:int"></xs:element>
+                                                                                                                                       <xs:element name="hour" type="xs:int"></xs:element>
+                                                                                                                                       <xs:element name="minute" type="xs:int"></xs:element>
+                                                                                                                                 </xs:sequence>
+                                                                                                                           </xs:complexType>
+                                                                                                                     </xs:element>
+                                                                                                                     <xs:element name="biSignature">
+                                                                                                                           <xs:complexType>
+                                                                                                                                 <xs:sequence>
+                                                                                                                                       <xs:element name="true"></xs:element>
+                                                                                                                                 </xs:sequence>
+                                                                                                                           </xs:complexType>
+                                                                                                                     </xs:element>
+                                                                                                                     <xs:element name="biEncryption">
+                                                                                                                           <xs:complexType>
+                                                                                                                                 <xs:sequence>
+                                                                                                                                       <xs:element name="false"></xs:element>
+                                                                                                                                 </xs:sequence>
+                                                                                                                           </xs:complexType>
+                                                                                                                     </xs:element>
+                                                                                                                     <xs:element name="dsrcInst">
+                                                                                                                           <xs:complexType>
+                                                                                                                                 <xs:sequence>
+                                                                                                                                       <xs:element name="biTxMode">
+                                                                                                                                             <xs:complexType>
+                                                                                                                                                   <xs:sequence>
+                                                                                                                                                         <xs:element name="alternating"></xs:element>
+                                                                                                                                                   </xs:sequence>
+                                                                                                                                             </xs:complexType>
+                                                                                                                                       </xs:element>
+                                                                                                                                       <xs:element name="biTxChannel">
+                                                                                                                                             <xs:complexType>
+                                                                                                                                                   <xs:sequence>
+                                                                                                                                                         <xs:element name="ch178"></xs:element>
+                                                                                                                                                   </xs:sequence>
+                                                                                                                                             </xs:complexType>
+                                                                                                                                       </xs:element>
+                                                                                                                                       <xs:element name="biTxInterval" type="xs:int"></xs:element>
+                                                                                                                                 </xs:sequence>
+                                                                                                                           </xs:complexType>
+                                                                                                                     </xs:element>
+                                                                                                               </xs:sequence>
+                                                                                                         </xs:complexType>
+                                                                                                   </xs:element>
+                                                                                                   <xs:element name="advisoryMessage" type="xs:string"></xs:element>
+                                                                                             </xs:sequence>
+                                                                                       </xs:complexType>
+                                                                                 </xs:element>
+                                                                           </xs:sequence>
+                                                                     </xs:complexType>
+                                                               </xs:element>
+                                                         </xs:sequence>
+                                                   </xs:complexType>
+                                             </xs:element>
+                                       </xs:sequence>
+                                 </xs:complexType>
+                           </xs:element>
+                     </xs:sequence>
+               </xs:complexType>
+         </xs:element>
+   </xs:schema>

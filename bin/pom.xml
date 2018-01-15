@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>gov.dot.its.jpo.sdcsdw</groupId>
-	<artifactId>common-models</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<artifactId>xer-jaxb-codec</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>common-models</name>
+	<name>xer-jaxb-codec</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>

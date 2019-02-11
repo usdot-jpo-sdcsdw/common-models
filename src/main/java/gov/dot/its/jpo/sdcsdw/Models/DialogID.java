@@ -1,12 +1,20 @@
 package gov.dot.its.jpo.sdcsdw.Models;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlRootElement(name = "DialogID")
+@XmlType(propOrder = { "dialogId", "vehSitData", "dataSubscription", "advSitDatDep", "advSitDatDist", "reserved1",
+						"reserved2", "objReg", "objDisc", "intersectionSitDataDep", "intersectionSitDataQuery"})
 public class DialogID {
-	private String dialogID;
+	@XmlElement
+	private String dialogId;
 	
 	private String vehSitData;
 	private String dataSubscription;
-	private String advSitDataDep;
-	private String advSitDataDist;
+	private String advSitDatDep;
+	private String advSitDatDist;
 	private String reserved1;
 	private String reserved2;
 	private String objReg;
@@ -15,7 +23,7 @@ public class DialogID {
 	private String intersectionSitDataQuery;
 
 	public String getDialogId() {
-		return this.dialogID;
+		return this.dialogId;
 	}
 	
 	public String getVehSitData() {
@@ -23,12 +31,12 @@ public class DialogID {
 	}
 
 	public void setVehSitData(String vehSitData) {
-		this.dialogID = "vehSitData";
+		this.dialogId = "vehSitData";
 		
 		this.vehSitData = vehSitData;
 		this.dataSubscription = null;
-		this.advSitDataDep = null;
-		this.advSitDataDist = null;
+		this.advSitDatDep = null;
+		this.advSitDatDist = null;
 		this.reserved1 = null;
 		this.reserved2 = null;
 		this.objReg = null;
@@ -42,12 +50,12 @@ public class DialogID {
 	}
 
 	public void setDataSubscription(String dataSubscription) {
-		this.dialogID = "dataSubscription";
+		this.dialogId = "dataSubscription";
 		
 		this.vehSitData = null;
 		this.dataSubscription = dataSubscription;
-		this.advSitDataDep = null;
-		this.advSitDataDist = null;
+		this.advSitDatDep = null;
+		this.advSitDatDist = null;
 		this.reserved1 = null;
 		this.reserved2 = null;
 		this.objReg = null;
@@ -56,17 +64,17 @@ public class DialogID {
 		this.intersectionSitDataQuery = null;
 	}
 
-	public String getAdvSitDataDep() {
-		return advSitDataDep;
+	public String getAdvSitDatDep() {
+		return advSitDatDep;
 	}
 
-	public void setAdvSitDataDep(String advSitDataDep) {
-		this.dialogID = "advSitDataDep";
+	public void setAdvSitDatDep(String advSitDataDep) {
+		this.dialogId = "advSitDataDep";
 		
 		this.vehSitData = null;
 		this.dataSubscription = null;
-		this.advSitDataDep = advSitDataDep;
-		this.advSitDataDist = null;
+		this.advSitDatDep = advSitDataDep;
+		this.advSitDatDist = null;
 		this.reserved1 = null;
 		this.reserved2 = null;
 		this.objReg = null;
@@ -76,16 +84,16 @@ public class DialogID {
 	}
 
 	public String getAdvSitDatDist() {
-		return advSitDataDist;
+		return advSitDatDist;
 	}
 
 	public void setAdvSitDatDist(String advSitDatDist) {
-		this.dialogID = "advSitDataDist";
+		this.dialogId = "advSitDataDist";
 		
 		this.vehSitData = null;
 		this.dataSubscription = null;
-		this.advSitDataDep = null;
-		this.advSitDataDist = advSitDatDist;
+		this.advSitDatDep = null;
+		this.advSitDatDist = advSitDatDist;
 		this.reserved1 = null;
 		this.reserved2 = null;
 		this.objReg = null;
@@ -99,12 +107,12 @@ public class DialogID {
 	}
 
 	public void setReserved1(String reserved1) {
-		this.dialogID = "reserved1";
+		this.dialogId = "reserved1";
 		
 		this.vehSitData = null;
 		this.dataSubscription = null;
-		this.advSitDataDep = null;
-		this.advSitDataDist = null;
+		this.advSitDatDep = null;
+		this.advSitDatDist = null;
 		this.reserved1 = reserved1;
 		this.reserved2 = null;
 		this.objReg = null;
@@ -118,12 +126,12 @@ public class DialogID {
 	}
 
 	public void setReserved2(String reserved2) {
-		this.dialogID = "reserved2";
+		this.dialogId = "reserved2";
 		
 		this.vehSitData = null;
 		this.dataSubscription = null;
-		this.advSitDataDep = null;
-		this.advSitDataDist = null;
+		this.advSitDatDep = null;
+		this.advSitDatDist = null;
 		this.reserved1 = null;
 		this.reserved2 = reserved2;
 		this.objReg = null;
@@ -137,12 +145,12 @@ public class DialogID {
 	}
 
 	public void setObjReg(String objReg) {
-		this.dialogID = "objReg";
+		this.dialogId = "objReg";
 		
 		this.vehSitData = null;
 		this.dataSubscription = null;
-		this.advSitDataDep = null;
-		this.advSitDataDist = null;
+		this.advSitDatDep = null;
+		this.advSitDatDist = null;
 		this.reserved1 = null;
 		this.reserved2 = null;
 		this.objReg = objReg;
@@ -156,12 +164,12 @@ public class DialogID {
 	}
 
 	public void setObjDisc(String objDisc) {
-		this.dialogID = "objDisc";
+		this.dialogId = "objDisc";
 		
 		this.vehSitData = null;
 		this.dataSubscription = null;
-		this.advSitDataDep = null;
-		this.advSitDataDist = null;
+		this.advSitDatDep = null;
+		this.advSitDatDist = null;
 		this.reserved1 = null;
 		this.reserved2 = null;
 		this.objReg = null;
@@ -175,12 +183,12 @@ public class DialogID {
 	}
 
 	public void setIntersectionSitDataDep(String intersectionSitDataDep) {
-		this.dialogID = "intersectionSitDataDep";
+		this.dialogId = "intersectionSitDataDep";
 		
 		this.vehSitData = null;
 		this.dataSubscription = null;
-		this.advSitDataDep = null;
-		this.advSitDataDist = null;
+		this.advSitDatDep = null;
+		this.advSitDatDist = null;
 		this.reserved1 = null;
 		this.reserved2 = null;
 		this.objReg = null;
@@ -194,12 +202,12 @@ public class DialogID {
 	}
 
 	public void setIntersectionSitDataQuery(String intersectionSitDataQuery) {
-		this.dialogID = "intersectionSitDataQuery";
+		this.dialogId = "intersectionSitDataQuery";
 		
 		this.vehSitData = null;
 		this.dataSubscription = null;
-		this.advSitDataDep = null;
-		this.advSitDataDist = null;
+		this.advSitDatDep = null;
+		this.advSitDatDist = null;
 		this.reserved1 = null;
 		this.reserved2 = null;
 		this.objReg = null;

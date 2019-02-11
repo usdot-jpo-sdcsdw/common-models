@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "AdvisorySituationData")
-@XmlType(propOrder = { "dialogID", "seqID", "groupID", "requestID", "timeToLive", "serviceRegion", "asdmDetails" })
+@XmlType(propOrder = { "dialogID", "seqID", "groupID", "requestID", "timeToLive", "serviceRegion", "asdmDetails"})
 public class AdvisorySituationData extends DialogMessage {
 	private DialogID dialogID;
 
@@ -19,6 +19,8 @@ public class AdvisorySituationData extends DialogMessage {
 	private AsdmDetails asdmDetails;
 
 	private TimeToLive timeToLive;
+	
+	private String asn1MessageType;
 
 	public DialogID getDialogID() {
 		return dialogID;
@@ -79,6 +81,7 @@ public class AdvisorySituationData extends DialogMessage {
 	@Override
 	public String getASN1MessageType() {
 		// TODO Auto-generated method stub
-		return "AdvisorySituationData";
+		this.asn1MessageType = "AdvisorySituationData";
+		return this.asn1MessageType;
 	}
 }

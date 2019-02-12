@@ -1,7 +1,9 @@
 package gov.dot.its.jpo.sdcsdw.Models;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+@XmlRootElement(name = "AdvisorySituationBundle")
 @XmlType(name = "AdvisorySituationBundle", propOrder = { "bundleNumber", "bundleId", "asdRecords" })
 public class AdvisorySituationBundle {
 	private AsdRecords asdRecords;

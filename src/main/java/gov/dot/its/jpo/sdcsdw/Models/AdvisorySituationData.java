@@ -3,6 +3,8 @@ package gov.dot.its.jpo.sdcsdw.Models;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @XmlRootElement(name = "AdvisorySituationData")
 @XmlType(propOrder = { "dialogID", "seqID", "groupID", "requestID", "timeToLive", "serviceRegion", "asdmDetails"})
 public class AdvisorySituationData extends DialogMessage {
@@ -79,6 +81,7 @@ public class AdvisorySituationData extends DialogMessage {
 	}
 
 	@Override
+	@JsonIgnore
 	public String getASN1MessageType() {
 		// TODO Auto-generated method stub
 		this.asn1MessageType = "AdvisorySituationData";

@@ -4,6 +4,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @XmlRootElement(name = "AdvisorySituationDataDistribution")
 @XmlType(name = "", propOrder = { "dialogID", "seqID", "groupID", "requestID", "recordCount", "bundleCount",
 		"asdBundles" })
@@ -85,6 +87,7 @@ public class AdvisorySituationDataDistribution extends DialogMessage {
 		this.asdBundles = asdBundles;
 	}
 
+	@JsonIgnore
 	public String getASN1MessageType() {
 		// TODO Auto-generated method stub
 		return "AdvisorySituationDataDistribution";

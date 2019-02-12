@@ -5,7 +5,6 @@ import javax.xml.bind.JAXBException;
 import gov.dot.its.jpo.sdcsdw.Models.AdvisorySituationDataDistribution;
 import gov.dot.its.jpo.sdcsdw.Models.Destination;
 import gov.dot.its.jpo.sdcsdw.Models.DialogID;
-import gov.dot.its.jpo.sdcsdw.Models.DialogIdType;
 import gov.dot.its.jpo.sdcsdw.Models.SeqID;
 import gov.dot.its.jpo.sdcsdw.Models.ServiceRequest;
 import junit.framework.Test;
@@ -37,7 +36,7 @@ public class XerJaxbCodecTest extends TestCase {
 	 * Rigourous Test :-)
 	 */
 	public void testUnmarshallServiceRequest() {
-		String rawXER = "<ServiceRequest><dialogID><dialog-id-type>advSitDatDist</dialog-id-type></dialogID><seqID><svcReq/></seqID>"
+		String rawXER = "<ServiceRequest><dialogID><advSitDatDist/></dialogID><seqID><svcReq/></seqID>"
 				+ "<groupID>0000000</groupID><requestID>E054E21B</requestID><destination><port>46750</port></destination></ServiceRequest>";
 		ServiceRequest serviceRequest = null;
 		try {
@@ -51,14 +50,14 @@ public class XerJaxbCodecTest extends TestCase {
 		assertEquals("E054E21B", serviceRequest.getRequestID());
 		assertEquals("46750", serviceRequest.getDestination().getPort());
 		assertEquals("svcReq", serviceRequest.getSeqID().getSeqId());
-		assertEquals("advSitDatDist", serviceRequest.getDialogID().getDialogIdType().getValue());
+		assertEquals("advSitDataDist", serviceRequest.getDialogID().getDialogId());
 	}
 
 	public void testMarshallServiceRequest() {
 		ServiceRequest serviceRequest = new ServiceRequest();
 
 		DialogID dialogID = new DialogID();
-		dialogID.setDialogId(DialogIdType.ADV_SIT_DAT_DIST);
+		dialogID.setAdvSitDatDist("");
 		serviceRequest.setDialogID(dialogID);
 
 		SeqID seqID = new SeqID();
@@ -81,7 +80,7 @@ public class XerJaxbCodecTest extends TestCase {
 			e.printStackTrace();
 		}
 
-		assertEquals("<ServiceRequest><dialogID><dialog-id-type>advSitDatDist</dialog-id-type>"
+		assertEquals("<ServiceRequest><dialogID><advSitDatDist></advSitDatDist>"
 				+ "</dialogID><seqID><svcReq></svcReq></seqID><groupID>0000000</groupID>"
 				+ "<requestID>E054E21B</requestID><destination><port>46750</port></destination></ServiceRequest>",
 				outputXER);

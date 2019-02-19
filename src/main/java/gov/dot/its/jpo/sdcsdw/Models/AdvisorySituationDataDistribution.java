@@ -1,17 +1,22 @@
 package gov.dot.its.jpo.sdcsdw.Models;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @XmlRootElement(name = "AdvisorySituationDataDistribution")
+@XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = { "dialogID", "seqID", "groupID", "requestID", "recordCount", "bundleCount",
 		"asdBundles" })
 public class AdvisorySituationDataDistribution extends DialogMessage {
 	private String recordCount;
 
+	@XmlJavaTypeAdapter(DialogIDXmlAdapter.class)
 	private DialogID dialogID;
 
 	private String groupID;
@@ -24,7 +29,7 @@ public class AdvisorySituationDataDistribution extends DialogMessage {
 
 	private AsdBundles asdBundles;
 
-	@XmlElement
+	
 	public String getRecordCount() {
 		return recordCount;
 	}
@@ -33,7 +38,7 @@ public class AdvisorySituationDataDistribution extends DialogMessage {
 		this.recordCount = recordCount;
 	}
 
-	@XmlElement
+	
 	public DialogID getDialogID() {
 		return dialogID;
 	}
@@ -42,7 +47,7 @@ public class AdvisorySituationDataDistribution extends DialogMessage {
 		this.dialogID = dialogID;
 	}
 
-	@XmlElement
+	
 	public String getGroupID() {
 		return groupID;
 	}
@@ -51,7 +56,7 @@ public class AdvisorySituationDataDistribution extends DialogMessage {
 		this.groupID = groupID;
 	}
 
-	@XmlElement
+	
 	public String getRequestID() {
 		return requestID;
 	}
@@ -60,7 +65,7 @@ public class AdvisorySituationDataDistribution extends DialogMessage {
 		this.requestID = requestID;
 	}
 
-	@XmlElement
+	
 	public SeqID getSeqID() {
 		return seqID;
 	}
@@ -69,7 +74,7 @@ public class AdvisorySituationDataDistribution extends DialogMessage {
 		this.seqID = seqID;
 	}
 
-	@XmlElement
+	
 	public String getBundleCount() {
 		return bundleCount;
 	}
@@ -78,7 +83,7 @@ public class AdvisorySituationDataDistribution extends DialogMessage {
 		this.bundleCount = bundleCount;
 	}
 
-	@XmlElement
+
 	public AsdBundles getAsdBundles() {
 		return asdBundles;
 	}

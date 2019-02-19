@@ -50,14 +50,13 @@ public class XerJaxbCodecTest extends TestCase {
 		assertEquals("E054E21B", serviceRequest.getRequestID());
 		assertEquals("46750", serviceRequest.getDestination().getPort());
 		assertEquals("svcReq", serviceRequest.getSeqID().getSeqId());
-		assertEquals("advSitDataDist", serviceRequest.getDialogID().getDialogId());
+		assertEquals("advSitDataDist", serviceRequest.getDialogID().getValue());
 	}
 
 	public void testMarshallServiceRequest() {
 		ServiceRequest serviceRequest = new ServiceRequest();
 
-		DialogID dialogID = new DialogID();
-		dialogID.setAdvSitDatDist("");
+		DialogID dialogID = DialogID.fromValue("advSitDatDist");
 		serviceRequest.setDialogID(dialogID);
 
 		SeqID seqID = new SeqID();

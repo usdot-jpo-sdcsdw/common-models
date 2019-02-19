@@ -1,13 +1,18 @@
 package gov.dot.its.jpo.sdcsdw.Models;
 
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @XmlRootElement(name = "AdvisorySituationData")
+@XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(propOrder = { "dialogID", "seqID", "groupID", "requestID", "timeToLive", "serviceRegion", "asdmDetails"})
 public class AdvisorySituationData extends DialogMessage {
+	@XmlJavaTypeAdapter(DialogIDXmlAdapter.class)
 	private DialogID dialogID;
 
 	private String groupID;
@@ -22,7 +27,7 @@ public class AdvisorySituationData extends DialogMessage {
 
 	private TimeToLive timeToLive;
 	
-	private String asn1MessageType;
+
 
 	public DialogID getDialogID() {
 		return dialogID;
@@ -84,7 +89,6 @@ public class AdvisorySituationData extends DialogMessage {
 	@JsonIgnore
 	public String getASN1MessageType() {
 		// TODO Auto-generated method stub
-		this.asn1MessageType = "AdvisorySituationData";
-		return this.asn1MessageType;
+		return "AdvisorySituationData";
 	}
 }

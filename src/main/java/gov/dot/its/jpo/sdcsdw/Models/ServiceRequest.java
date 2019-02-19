@@ -1,12 +1,17 @@
 package gov.dot.its.jpo.sdcsdw.Models;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlRootElement(name = "ServiceRequest")
+@XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(propOrder = { "dialogID", "seqID", "groupID", "requestID", "destination" })
 public class ServiceRequest extends DialogMessage {
+	@XmlJavaTypeAdapter(DialogIDXmlAdapter.class)
 	DialogID dialogID;
 	SeqID seqID;
 	String groupID;
@@ -33,27 +38,23 @@ public class ServiceRequest extends DialogMessage {
 		return this.destination;
 	}
 
-	@XmlElement
 	public void setDialogID(DialogID dialogID) {
 		this.dialogID = dialogID;
 	}
 
-	@XmlElement
+	
 	public void setSeqID(SeqID seqID) {
 		this.seqID = seqID;
 	}
 
-	@XmlElement
 	public void setGroupID(String groupID) {
 		this.groupID = groupID;
 	}
 
-	@XmlElement
 	public void setRequestID(String requestID) {
 		this.requestID = requestID;
 	}
 
-	@XmlElement
 	public void setDestination(Destination destination) {
 		this.destination = destination;
 	}

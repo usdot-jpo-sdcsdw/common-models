@@ -69,7 +69,7 @@ public class DialogIDXml {
     }
 
     public void setAdvSitDatDep(String advSitDataDep) {
-        this.dialogID = "advSitDataDep";
+        this.dialogID = "advSitDatDep";
         
         this.vehSitData = null;
         this.dataSubscription = null;
@@ -88,7 +88,7 @@ public class DialogIDXml {
     }
 
     public void setAdvSitDatDist(String advSitDatDist) {
-        this.dialogID = "advSitDataDist";
+        this.dialogID = "advSitDatDist";
         
         this.vehSitData = null;
         this.dataSubscription = null;

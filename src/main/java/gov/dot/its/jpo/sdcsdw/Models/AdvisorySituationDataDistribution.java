@@ -4,19 +4,19 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @XmlRootElement(name = "AdvisorySituationDataDistribution")
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlType(name = "", propOrder = { "dialogID", "seqID", "groupID", "requestID", "recordCount", "bundleCount",
 		"asdBundles" })
 public class AdvisorySituationDataDistribution extends DialogMessage {
 	private String recordCount;
 
-	@XmlJavaTypeAdapter(DialogIDXmlAdapter.class)
 	private DialogID dialogID;
 
 	private String groupID;
@@ -38,7 +38,7 @@ public class AdvisorySituationDataDistribution extends DialogMessage {
 		this.recordCount = recordCount;
 	}
 
-	
+	@XmlJavaTypeAdapter(DialogIDXmlAdapter.class)
 	public DialogID getDialogID() {
 		return dialogID;
 	}
@@ -93,6 +93,7 @@ public class AdvisorySituationDataDistribution extends DialogMessage {
 	}
 
 	@JsonIgnore
+	@XmlTransient
 	public String getASN1MessageType() {
 		// TODO Auto-generated method stub
 		return "AdvisorySituationDataDistribution";

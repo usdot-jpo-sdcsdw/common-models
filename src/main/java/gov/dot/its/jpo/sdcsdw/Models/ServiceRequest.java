@@ -2,22 +2,22 @@ package gov.dot.its.jpo.sdcsdw.Models;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlRootElement(name = "ServiceRequest")
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlType(propOrder = { "dialogID", "seqID", "groupID", "requestID", "destination" })
 public class ServiceRequest extends DialogMessage {
-	@XmlJavaTypeAdapter(DialogIDXmlAdapter.class)
 	DialogID dialogID;
 	SeqID seqID;
 	String groupID;
 	String requestID;
 	Destination destination;
 
+	@XmlJavaTypeAdapter(DialogIDXmlAdapter.class)
 	public DialogID getDialogID() {
 		return this.dialogID;
 	}
@@ -59,6 +59,7 @@ public class ServiceRequest extends DialogMessage {
 		this.destination = destination;
 	}
 
+	@XmlTransient
 	public String getASN1MessageType() {
 		// TODO Auto-generated method stub
 		return "ServiceRequest";

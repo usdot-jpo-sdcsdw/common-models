@@ -2,6 +2,9 @@ package gov.dot.its.jpo.sdcsdw.Models;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 public class AdvisorySituationDataDistributionList extends DialogMessage{
 
 	
@@ -31,7 +34,7 @@ public class AdvisorySituationDataDistributionList extends DialogMessage{
 		return null;
 	}
 
-	@Override
+	@XmlJavaTypeAdapter(DialogIDXmlAdapter.class)
 	public DialogID getDialogID() {
 		// TODO Auto-generated method stub
 		return null;
@@ -44,6 +47,7 @@ public class AdvisorySituationDataDistributionList extends DialogMessage{
 	}
 
 	@Override
+	@XmlTransient
 	public String getASN1MessageType() {
 		// TODO Auto-generated method stub
 		return "AdvisorySituationDataDistributionList";

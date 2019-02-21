@@ -1,7 +1,9 @@
 package gov.dot.its.jpo.sdcsdw.Models;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlRootElement(name = "DataAcceptance")
 @XmlType(propOrder = { "dialogID", "seqID", "groupID", "requestID" })
@@ -14,6 +16,7 @@ public class DataAcceptance extends DialogMessage{
 
 	private SeqID seqID;
 
+	@XmlJavaTypeAdapter(DialogIDXmlAdapter.class)
 	public DialogID getDialogID() {
 		return dialogID;
 	}
@@ -46,6 +49,7 @@ public class DataAcceptance extends DialogMessage{
 		this.seqID = seqID;
 	}
 
+	@XmlTransient
 	public String getASN1MessageType() {
 		// TODO Auto-generated method stub
 		return "DataAcceptance";

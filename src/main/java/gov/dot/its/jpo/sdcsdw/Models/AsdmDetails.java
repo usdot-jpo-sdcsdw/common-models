@@ -1,14 +1,17 @@
 package gov.dot.its.jpo.sdcsdw.Models;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
+@XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlType(name = "AsdmDetails", propOrder = { "asdmID", "asdmType", "distType", "startTime", "stopTime", "advisoryMessage" })
 public class AsdmDetails {
 	private String asdmID;
 
 	private StartTime startTime;
 
-	private AsdmType asdmType;
+	private AdvisoryBroadcastType asdmType;
 
 	private String distType;
 
@@ -32,11 +35,11 @@ public class AsdmDetails {
 		this.startTime = startTime;
 	}
 
-	public AsdmType getAsdmType() {
+	public AdvisoryBroadcastType getAsdmType() {
 		return asdmType;
 	}
 
-	public void setAsdmType(AsdmType asdmType) {
+	public void setAsdmType(AdvisoryBroadcastType asdmType) {
 		this.asdmType = asdmType;
 	}
 

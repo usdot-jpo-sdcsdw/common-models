@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlType;
 public class AdvisoryBroadcast {
 	private String messagePsid;
 
-	private BroadcastInst broadcastInst;
+	private BroadcastInstructions broadcastInst;
 
 	private String advisoryMessage;
 
@@ -18,11 +18,11 @@ public class AdvisoryBroadcast {
 		this.messagePsid = messagePsid;
 	}
 
-	public BroadcastInst getBroadcastInst() {
+	public BroadcastInstructions getBroadcastInst() {
 		return broadcastInst;
 	}
 
-	public void setBroadcastInst(BroadcastInst broadcastInst) {
+	public void setBroadcastInst(BroadcastInstructions broadcastInst) {
 		this.broadcastInst = broadcastInst;
 	}
 

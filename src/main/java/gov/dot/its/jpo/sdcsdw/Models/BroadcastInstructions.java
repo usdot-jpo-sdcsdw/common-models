@@ -3,12 +3,12 @@ package gov.dot.its.jpo.sdcsdw.Models;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-@XmlType(name = "BroadcastInst", propOrder = { "biType", "biPriority", "biDeliveryStart", "biDeliveryStop",
+@XmlType(propOrder = { "biType", "biPriority", "biDeliveryStart", "biDeliveryStop",
 		"biSignature", "biEncryption", "dsrcInst" })
-public class BroadcastInst {
+public class BroadcastInstructions {
 	private DsrcInst dsrcInst;
 
-	private BiType biType;
+	private AdvisoryBroadcastType biType;
 
 	private BiDeliveryStart biDeliveryStart;
 
@@ -28,11 +28,11 @@ public class BroadcastInst {
 		this.dsrcInst = dsrcInst;
 	}
 
-	public BiType getBiType() {
+	public AdvisoryBroadcastType getBiType() {
 		return biType;
 	}
 
-	public void setBiType(BiType biType) {
+	public void setBiType(AdvisoryBroadcastType biType) {
 		this.biType = biType;
 	}
 

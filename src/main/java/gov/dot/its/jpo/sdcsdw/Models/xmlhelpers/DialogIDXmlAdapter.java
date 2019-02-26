@@ -1,6 +1,8 @@
-package gov.dot.its.jpo.sdcsdw.Models;
+package gov.dot.its.jpo.sdcsdw.Models.xmlhelpers;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
+
+import gov.dot.its.jpo.sdcsdw.Models.DialogID;
 
 public class DialogIDXmlAdapter extends XmlAdapter<DialogIDXml, DialogID> {
 

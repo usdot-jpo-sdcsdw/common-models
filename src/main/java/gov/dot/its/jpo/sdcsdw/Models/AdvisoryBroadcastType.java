@@ -4,6 +4,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import gov.dot.its.jpo.sdcsdw.Models.xmlhelpers.AdvisoryBroadcastTypeXmlAdapter;
+
 @XmlJavaTypeAdapter(AdvisoryBroadcastTypeXmlAdapter.class)
 public enum AdvisoryBroadcastType
 {

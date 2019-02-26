@@ -1,4 +1,4 @@
-package gov.dot.its.jpo.sdcsdw.Models;
+package gov.dot.its.jpo.sdcsdw.Models.xmlhelpers;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 

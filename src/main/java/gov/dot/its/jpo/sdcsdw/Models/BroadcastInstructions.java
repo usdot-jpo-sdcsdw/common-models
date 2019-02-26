@@ -3,6 +3,8 @@ package gov.dot.its.jpo.sdcsdw.Models;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import gov.dot.its.jpo.sdcsdw.Models.xmlhelpers.Asn1BooleanXmlAdapter;
+
 @XmlType(propOrder = { "biType", "biPriority", "biDeliveryStart", "biDeliveryStop",
 		"biSignature", "biEncryption", "dsrcInst" })
 public class BroadcastInstructions {

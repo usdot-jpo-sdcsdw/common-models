@@ -1,6 +1,7 @@
 package gov.dot.its.jpo.sdcsdw.Models;
 
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlType(name = "BroadcastInst", propOrder = { "biType", "biPriority", "biDeliveryStart", "biDeliveryStop",
 		"biSignature", "biEncryption", "dsrcInst" })
@@ -15,9 +16,9 @@ public class BroadcastInst {
 
 	private String biPriority;
 
-	private BiEncryption biEncryption;
+	private Boolean biEncryption;
 
-	private BiSignature biSignature;
+	private Boolean biSignature;
 
 	public DsrcInst getDsrcInst() {
 		return dsrcInst;
@@ -59,19 +60,21 @@ public class BroadcastInst {
 		this.biPriority = biPriority;
 	}
 
-	public BiEncryption getBiEncryption() {
+    @XmlJavaTypeAdapter(Asn1BooleanXmlAdapter.class)
+	public Boolean getBiEncryption() {
 		return biEncryption;
 	}
 
-	public void setBiEncryption(BiEncryption biEncryption) {
+	public void setBiEncryption(Boolean biEncryption) {
 		this.biEncryption = biEncryption;
 	}
 
-	public BiSignature getBiSignature() {
+	@XmlJavaTypeAdapter(Asn1BooleanXmlAdapter.class)
+	public Boolean getBiSignature() {
 		return biSignature;
 	}
 
-	public void setBiSignature(BiSignature biSignature) {
+	public void setBiSignature(Boolean biSignature) {
 		this.biSignature = biSignature;
 	}
 }

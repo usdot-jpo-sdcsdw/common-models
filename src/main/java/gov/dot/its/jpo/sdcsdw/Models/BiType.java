@@ -11,7 +11,7 @@ public class BiType {
 		this.tim = tim;
 	}
 
-	public void setValuesFromStartTimeObject(AsdmType type) {
+	public void setValuesFromStartTimeObject(AsdmTypeXml type) {
 		this.setTim(type.getTim());
 	}
 }

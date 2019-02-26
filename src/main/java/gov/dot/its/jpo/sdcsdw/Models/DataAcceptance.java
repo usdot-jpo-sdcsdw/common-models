@@ -16,7 +16,6 @@ public class DataAcceptance extends DialogMessage{
 
 	private SeqID seqID;
 
-	@XmlJavaTypeAdapter(DialogIDXmlAdapter.class)
 	public DialogID getDialogID() {
 		return dialogID;
 	}

@@ -28,7 +28,6 @@ public class AdvisorySituationData extends DialogMessage {
 
 	private TimeToLive timeToLive;
 	
-	@XmlJavaTypeAdapter(DialogIDXmlAdapter.class)
 	public DialogID getDialogID() {
 		return this.dialogID;
 	}

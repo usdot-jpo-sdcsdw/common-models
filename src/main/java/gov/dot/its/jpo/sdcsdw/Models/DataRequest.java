@@ -20,7 +20,6 @@ public class DataRequest extends DialogMessage{
 
     private String distType;
 
-    @XmlJavaTypeAdapter(DialogIDXmlAdapter.class)
     public DialogID getDialogID ()
     {
         return dialogID;

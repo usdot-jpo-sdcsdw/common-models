@@ -34,7 +34,6 @@ public class AdvisorySituationDataDistributionList extends DialogMessage{
 		return null;
 	}
 
-	@XmlJavaTypeAdapter(DialogIDXmlAdapter.class)
 	public DialogID getDialogID() {
 		// TODO Auto-generated method stub
 		return null;

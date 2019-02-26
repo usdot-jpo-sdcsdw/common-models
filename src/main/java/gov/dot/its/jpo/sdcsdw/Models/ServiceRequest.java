@@ -17,7 +17,6 @@ public class ServiceRequest extends DialogMessage {
 	String requestID;
 	Destination destination;
 
-	@XmlJavaTypeAdapter(DialogIDXmlAdapter.class)
 	public DialogID getDialogID() {
 		return this.dialogID;
 	}

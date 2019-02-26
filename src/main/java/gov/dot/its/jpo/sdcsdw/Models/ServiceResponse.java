@@ -10,7 +10,6 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlType(propOrder = { "dialogID", "seqID", "groupID", "requestID", "expiration", "serviceRegion", "hash" })
 public class ServiceResponse extends DialogMessage {
 
-  @XmlJavaTypeAdapter(DialogIDXmlAdapter.class)
 	public DialogID getDialogID() {
 		return dialogID;
 	}

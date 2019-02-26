@@ -38,7 +38,7 @@ public class AdvisorySituationDataDistribution extends DialogMessage {
 		this.recordCount = recordCount;
 	}
 
-	@XmlJavaTypeAdapter(DialogIDXmlAdapter.class)
+
 	public DialogID getDialogID() {
 		return dialogID;
 	}

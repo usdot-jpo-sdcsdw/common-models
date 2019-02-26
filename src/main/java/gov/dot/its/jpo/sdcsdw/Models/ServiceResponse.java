@@ -6,8 +6,6 @@ import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import gov.dot.its.jpo.sdcsdw.Models.xmlhelpers.SemiSequenceIDXml;
-
 @XmlRootElement(name = "ServiceResponse")
 @XmlType(propOrder = { "dialogID", "seqID", "groupID", "requestID", "expiration", "serviceRegion", "hash" })
 public class ServiceResponse extends DialogMessage {

@@ -7,7 +7,6 @@ import gov.dot.its.jpo.sdcsdw.Models.Destination;
 import gov.dot.its.jpo.sdcsdw.Models.DialogID;
 import gov.dot.its.jpo.sdcsdw.Models.SemiSequenceID;
 import gov.dot.its.jpo.sdcsdw.Models.ServiceRequest;
-import gov.dot.its.jpo.sdcsdw.Models.xmlhelpers.SemiSequenceIDXml;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;

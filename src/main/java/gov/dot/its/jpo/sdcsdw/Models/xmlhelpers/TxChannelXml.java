@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public class TxChannelXml {
+class TxChannelXml {
     private String txChannel;
     
 

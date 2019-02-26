@@ -5,7 +5,7 @@ import javax.xml.bind.annotation.XmlType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public class DialogIDXml {
+class DialogIDXml {
     @XmlTransient
     private String dialogID;
     

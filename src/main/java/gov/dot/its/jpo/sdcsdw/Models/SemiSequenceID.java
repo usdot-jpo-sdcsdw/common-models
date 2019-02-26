@@ -2,7 +2,7 @@ package gov.dot.its.jpo.sdcsdw.Models;
 
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 import gov.dot.its.jpo.sdcsdw.Models.xmlhelpers.SemiSequenceIDXmlAdapter;
 
@@ -10,34 +10,15 @@ import gov.dot.its.jpo.sdcsdw.Models.xmlhelpers.SemiSequenceIDXmlAdapter;
 public enum SemiSequenceID
 {
 
-    @JsonProperty("svcReq")
     SVC_REQ("svcReq", 1),
-
-    @JsonProperty("svcResp")
     SVC_RESP("svcResp", 2),
-    
-    @JsonProperty("dataReq")
     DATA_REQ("dataReq", 3),
-    
-    @JsonProperty("dataConf")
     DATA_CONF("dataConf", 4),
-    
-    @JsonProperty("data")
     DATA("data", 5),
-    
-    @JsonProperty("accept")
     ACCEPT("accept", 6),
-    
-    @JsonProperty("receipt")
     RECEIPT("receipt", 7),
-    
-    @JsonProperty("subscriptionReq")
     SUBSCRIPTION_REQ("subscriptionReq", 8),
-    
-    @JsonProperty("subscriptinoResp")
     SUBSCRIPTINO_RESP("subscriptinoResp", 9), // NOT A TYPO, check the spec
-    
-    @JsonProperty("subscriptionCancel")
     SUBSCRIPTION_CANCEL("subscriptionCancel", 10);
     
     
@@ -49,6 +30,7 @@ public enum SemiSequenceID
         this.intValue = intValue;
     }
     
+    @JsonValue
     public String getString() {
         return this.stringValue;
     }

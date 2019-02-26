@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public class SemiSequenceIDXml {
+class SemiSequenceIDXml {
     private String semiSequenceID;
     
     private String svcReq;

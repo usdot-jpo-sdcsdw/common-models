@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public class AdvisoryBroadcastTypeXml{
+class AdvisoryBroadcastTypeXml{
     private String advisoryBroadcastType;
     private String spatAggregate;
     private String map;

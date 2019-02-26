@@ -7,8 +7,6 @@ import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import gov.dot.its.jpo.sdcsdw.Models.xmlhelpers.SemiSequenceIDXml;
-
 @XmlRootElement(name = "ServiceRequest")
 @XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlType(propOrder = { "dialogID", "seqID", "groupID", "requestID", "destination" })

@@ -1,7 +1,5 @@
 package gov.dot.its.jpo.sdcsdw.Models;
 
-import gov.dot.its.jpo.sdcsdw.Models.xmlhelpers.SemiSequenceIDXml;
-
 public abstract class DialogMessage {
 
 	public abstract String getRequestID();

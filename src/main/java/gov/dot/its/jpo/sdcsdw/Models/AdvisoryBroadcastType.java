@@ -2,20 +2,16 @@ package gov.dot.its.jpo.sdcsdw.Models;
 
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 import gov.dot.its.jpo.sdcsdw.Models.xmlhelpers.AdvisoryBroadcastTypeXmlAdapter;
 
 @XmlJavaTypeAdapter(AdvisoryBroadcastTypeXmlAdapter.class)
 public enum AdvisoryBroadcastType
 {
-    @JsonProperty("spatAggregate")
     SPAT_AGGREGATE("spatAggregate", 0),
-    @JsonProperty("map")
     MAP("map", 1),
-    @JsonProperty("tim")
     TIM("tim", 2),
-    @JsonProperty("ev")
     EV("ev", 3);
     
     
@@ -27,6 +23,7 @@ public enum AdvisoryBroadcastType
         this.intValue = intValue;
     }
     
+    @JsonValue
     public String getString() {
         return this.stringValue;
     }

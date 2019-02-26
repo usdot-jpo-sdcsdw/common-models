@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public class Asn1BooleanXml
+class Asn1BooleanXml
 {
     @XmlTransient
     @JsonIgnore

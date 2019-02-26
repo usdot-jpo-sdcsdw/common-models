@@ -10,9 +10,6 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import gov.dot.its.jpo.sdcsdw.Models.xmlhelpers.SemiSequenceIDXml;
-import gov.dot.its.jpo.sdcsdw.Models.xmlhelpers.TimeToLiveXml;
-
 @XmlRootElement(name = "AdvisorySituationData")
 @XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlType(propOrder = { "dialogID", "seqID", "groupID", "requestID", "timeToLive", "serviceRegion", "asdmDetails"})

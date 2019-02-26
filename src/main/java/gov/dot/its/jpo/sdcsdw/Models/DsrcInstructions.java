@@ -2,8 +2,6 @@ package gov.dot.its.jpo.sdcsdw.Models;
 
 import javax.xml.bind.annotation.XmlType;
 
-import gov.dot.its.jpo.sdcsdw.Models.xmlhelpers.TxChannelXml;
-import gov.dot.its.jpo.sdcsdw.Models.xmlhelpers.TxModeXml;
 
 @XmlType(name = "DsrcInst", propOrder = { "biTxMode", "biTxChannel", "biTxInterval" })
 public class DsrcInstructions {

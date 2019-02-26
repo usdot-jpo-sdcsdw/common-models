@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public class TimeToLiveXml {
+class TimeToLiveXml {
     private String timeToLive;
     
     private String minute;

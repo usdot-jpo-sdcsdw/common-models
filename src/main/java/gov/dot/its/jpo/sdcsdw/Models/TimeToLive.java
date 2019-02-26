@@ -3,23 +3,18 @@ package gov.dot.its.jpo.sdcsdw.Models;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 import gov.dot.its.jpo.sdcsdw.Models.xmlhelpers.TimeToLiveXmlAdapter;
 
 @XmlJavaTypeAdapter(TimeToLiveXmlAdapter.class)
 public enum TimeToLive
 {
-    @JsonProperty("minute")
     MINUTE("minute", 0),
-    @JsonProperty("halfHour")
     HALF_HOUR("halfHour", 1),
-    @JsonProperty("day")
     DAY("day", 2),
-    @JsonProperty("week")
     WEEK("week", 3),
-    @JsonProperty("month")
     MONTH("month", 4),
-    @JsonProperty("year")
     YEAR("year", 5);
     
     private final String stringValue;
@@ -30,6 +25,7 @@ public enum TimeToLive
         this.intValue = intValue;
     }
     
+    @JsonValue
     public String getString() {
         return this.stringValue;
     }

@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public class TxModeXml {
+class TxModeXml {
     private String txMode;
     
 	private String alternating;

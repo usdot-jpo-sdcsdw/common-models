@@ -37,21 +37,4 @@ public class TxModeXml {
     public String getTxMode() {
         return txMode;
     }
-    
-    @XmlTransient
-    @JsonIgnore
-	public void setMode(int txMode) {
-		// TODO Auto-generated method stub
-		switch (txMode) {
-		case 0:
-			this.setContinuous("");
-			break;
-		case 1:
-			this.setAlternating("");
-			break;
-
-		default:
-			break;
-		}
-	}
 }

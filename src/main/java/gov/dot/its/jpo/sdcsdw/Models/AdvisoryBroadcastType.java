@@ -10,31 +10,46 @@ import gov.dot.its.jpo.sdcsdw.Models.xmlhelpers.AdvisoryBroadcastTypeXmlAdapter;
 public enum AdvisoryBroadcastType
 {
     @JsonProperty("spatAggregate")
-    SPAT_AGGREGATE("spatAggregate"),
+    SPAT_AGGREGATE("spatAggregate", 0),
     @JsonProperty("map")
-    MAP("map"),
+    MAP("map", 1),
     @JsonProperty("tim")
-    TIM("tim"),
+    TIM("tim", 2),
     @JsonProperty("ev")
-    EV("ev");
+    EV("ev", 3);
     
     
-    private final String value;
+    private final String stringValue;
+    private final int intValue;
     
-    AdvisoryBroadcastType(String value) {
-        this.value = value;
+    AdvisoryBroadcastType(String stringValue, int intValue) {
+        this.stringValue = stringValue;
+        this.intValue = intValue;
     }
     
-    public String getValue() {
-        return this.value;
+    public String getString() {
+        return this.stringValue;
+    }
+    
+    public int getInt() {
+        return this.intValue;
     }
     
     public static AdvisoryBroadcastType fromValue(String val) {
         for (AdvisoryBroadcastType advisoryBroadcastType : AdvisoryBroadcastType.values()) {
-            if (advisoryBroadcastType.value.equals(val)) {
+            if (advisoryBroadcastType.stringValue.equals(val)) {
                 return advisoryBroadcastType;
             }
         }
         throw new IllegalArgumentException(val);
+    }
+    
+    public static AdvisoryBroadcastType fromValue(int val) {
+        for (AdvisoryBroadcastType advisoryBroadcastType : AdvisoryBroadcastType.values()) {
+            if (advisoryBroadcastType.intValue == val) {
+                return advisoryBroadcastType;
+            }
+        }
+        throw new IllegalArgumentException(Integer.toString(val));
     }
 }

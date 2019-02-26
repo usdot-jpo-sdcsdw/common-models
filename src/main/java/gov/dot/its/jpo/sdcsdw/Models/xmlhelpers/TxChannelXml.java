@@ -97,43 +97,4 @@ public class TxChannelXml {
 	public String getTxChannel() {
 	    return txChannel;
 	}
-	
-	@XmlTransient
-	@JsonIgnore
-	public void setChannel(int channel) {
-		switch (channel) {
-		case 0:
-			setChControl("");
-			break;
-		case 1:
-			setChService("");
-			break;
-		case 2:
-			setCh172("");
-			break;
-		case 3:
-			setCh174("");
-			break;
-		case 4:
-			setCh176("");
-			break;
-		case 5:
-			setCh178("");
-			break;
-		case 6:
-			setCh180("");
-			break;
-		case 7:
-			setCh182("");
-			break;
-		case 8:
-			setCh184("");
-			break;
-
-		default:
-			break;
-		};
-			
-	}
-
 }

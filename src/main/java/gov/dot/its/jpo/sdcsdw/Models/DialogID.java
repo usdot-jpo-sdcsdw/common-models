@@ -13,8 +13,8 @@ public enum DialogID {
 	@XmlEnumValue("dataSubscription")
 	DATA_SUBSCRIPTION("dataSubscription"),
 	
-	@XmlEnumValue("advSitDatDep")
-	ADV_SIT_DAT_DEP("advSitDatDep"),
+	@XmlEnumValue("advSitDataDep")
+	ADV_SIT_DATA_DEP("advSitDataDep"),
 	
 	@XmlEnumValue("advSitDatDist")
 	ADV_SIT_DAT_DIST("advSitDatDist"),

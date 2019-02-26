@@ -11,7 +11,7 @@ public class DialogIDXml {
     
     private String vehSitData;
     private String dataSubscription;
-    private String advSitDatDep;
+    private String advSitDataDep;
     private String advSitDatDist;
     private String reserved1;
     private String reserved2;
@@ -35,7 +35,7 @@ public class DialogIDXml {
         
         this.vehSitData = vehSitData;
         this.dataSubscription = null;
-        this.advSitDatDep = null;
+        this.advSitDataDep = null;
         this.advSitDatDist = null;
         this.reserved1 = null;
         this.reserved2 = null;
@@ -54,7 +54,7 @@ public class DialogIDXml {
         
         this.vehSitData = null;
         this.dataSubscription = dataSubscription;
-        this.advSitDatDep = null;
+        this.advSitDataDep = null;
         this.advSitDatDist = null;
         this.reserved1 = null;
         this.reserved2 = null;
@@ -64,16 +64,16 @@ public class DialogIDXml {
         this.intersectionSitDataQuery = null;
     }
 
-    public String getAdvSitDatDep() {
-        return advSitDatDep;
+    public String getAdvSitDataDep() {
+        return advSitDataDep;
     }
 
-    public void setAdvSitDatDep(String advSitDataDep) {
-        this.dialogID = "advSitDatDep";
+    public void setAdvSitDataDep(String advSitDataDep) {
+        this.dialogID = "advSitDataDep";
         
         this.vehSitData = null;
         this.dataSubscription = null;
-        this.advSitDatDep = advSitDataDep;
+        this.advSitDataDep = advSitDataDep;
         this.advSitDatDist = null;
         this.reserved1 = null;
         this.reserved2 = null;
@@ -92,7 +92,7 @@ public class DialogIDXml {
         
         this.vehSitData = null;
         this.dataSubscription = null;
-        this.advSitDatDep = null;
+        this.advSitDataDep = null;
         this.advSitDatDist = advSitDatDist;
         this.reserved1 = null;
         this.reserved2 = null;
@@ -111,7 +111,7 @@ public class DialogIDXml {
         
         this.vehSitData = null;
         this.dataSubscription = null;
-        this.advSitDatDep = null;
+        this.advSitDataDep = null;
         this.advSitDatDist = null;
         this.reserved1 = reserved1;
         this.reserved2 = null;
@@ -130,7 +130,7 @@ public class DialogIDXml {
         
         this.vehSitData = null;
         this.dataSubscription = null;
-        this.advSitDatDep = null;
+        this.advSitDataDep = null;
         this.advSitDatDist = null;
         this.reserved1 = null;
         this.reserved2 = reserved2;
@@ -149,7 +149,7 @@ public class DialogIDXml {
         
         this.vehSitData = null;
         this.dataSubscription = null;
-        this.advSitDatDep = null;
+        this.advSitDataDep = null;
         this.advSitDatDist = null;
         this.reserved1 = null;
         this.reserved2 = null;
@@ -168,7 +168,7 @@ public class DialogIDXml {
         
         this.vehSitData = null;
         this.dataSubscription = null;
-        this.advSitDatDep = null;
+        this.advSitDataDep = null;
         this.advSitDatDist = null;
         this.reserved1 = null;
         this.reserved2 = null;
@@ -187,7 +187,7 @@ public class DialogIDXml {
         
         this.vehSitData = null;
         this.dataSubscription = null;
-        this.advSitDatDep = null;
+        this.advSitDataDep = null;
         this.advSitDatDist = null;
         this.reserved1 = null;
         this.reserved2 = null;
@@ -206,7 +206,7 @@ public class DialogIDXml {
         
         this.vehSitData = null;
         this.dataSubscription = null;
-        this.advSitDatDep = null;
+        this.advSitDataDep = null;
         this.advSitDatDist = null;
         this.reserved1 = null;
         this.reserved2 = null;

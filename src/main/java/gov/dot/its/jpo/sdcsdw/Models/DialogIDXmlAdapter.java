@@ -15,8 +15,8 @@ public class DialogIDXmlAdapter extends XmlAdapter<DialogIDXml, DialogID> {
         case DATA_SUBSCRIPTION:
             returnDialogIdXml.setDataSubscription("");
             break;
-        case ADV_SIT_DAT_DEP:
-            returnDialogIdXml.setAdvSitDatDep("");
+        case ADV_SIT_DATA_DEP:
+            returnDialogIdXml.setAdvSitDataDep("");
             break;
         case ADV_SIT_DAT_DIST:
             returnDialogIdXml.setAdvSitDatDist("");

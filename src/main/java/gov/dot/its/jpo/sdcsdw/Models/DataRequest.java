@@ -5,6 +5,8 @@ import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import gov.dot.its.jpo.sdcsdw.Models.xmlhelpers.SemiSequenceIDXml;
+
 @XmlRootElement(name = "DataRequest")
 @XmlType(propOrder = { "dialogID", "seqID", "groupID", "requestID","serviceRegion","distType" })
 public class DataRequest extends DialogMessage{
@@ -16,7 +18,7 @@ public class DataRequest extends DialogMessage{
 
     private ServiceRegion serviceRegion;
 
-    private SeqID seqID;
+    private SemiSequenceID seqID;
 
     private String distType;
 
@@ -60,12 +62,12 @@ public class DataRequest extends DialogMessage{
         this.serviceRegion = serviceRegion;
     }
 
-    public SeqID getSeqID ()
+    public SemiSequenceID getSeqID ()
     {
         return seqID;
     }
 
-    public void setSeqID (SeqID seqID)
+    public void setSeqID (SemiSequenceID seqID)
     {
         this.seqID = seqID;
     }

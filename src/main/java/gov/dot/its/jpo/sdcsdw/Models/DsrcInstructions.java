@@ -2,13 +2,16 @@ package gov.dot.its.jpo.sdcsdw.Models;
 
 import javax.xml.bind.annotation.XmlType;
 
+import gov.dot.its.jpo.sdcsdw.Models.xmlhelpers.TxChannelXml;
+import gov.dot.its.jpo.sdcsdw.Models.xmlhelpers.TxModeXml;
+
 @XmlType(name = "DsrcInst", propOrder = { "biTxMode", "biTxChannel", "biTxInterval" })
-public class DsrcInst {
+public class DsrcInstructions {
 	private String biTxInterval;
 
-	private BiTxMode biTxMode;
+	private TxMode biTxMode;
 
-	private BiTxChannel biTxChannel;
+	private TxChannel biTxChannel;
 
 	public String getBiTxInterval() {
 		return biTxInterval;
@@ -18,19 +21,19 @@ public class DsrcInst {
 		this.biTxInterval = biTxInterval;
 	}
 
-	public BiTxMode getBiTxMode() {
+	public TxMode getBiTxMode() {
 		return biTxMode;
 	}
 
-	public void setBiTxMode(BiTxMode biTxMode) {
+	public void setBiTxMode(TxMode biTxMode) {
 		this.biTxMode = biTxMode;
 	}
 
-	public BiTxChannel getBiTxChannel() {
+	public TxChannel getBiTxChannel() {
 		return biTxChannel;
 	}
 
-	public void setBiTxChannel(BiTxChannel biTxChannel) {
+	public void setBiTxChannel(TxChannel biTxChannel) {
 		this.biTxChannel = biTxChannel;
 	}
 

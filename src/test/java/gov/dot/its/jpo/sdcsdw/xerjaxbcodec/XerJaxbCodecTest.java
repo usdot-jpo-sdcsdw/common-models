@@ -5,8 +5,9 @@ import javax.xml.bind.JAXBException;
 import gov.dot.its.jpo.sdcsdw.Models.AdvisorySituationDataDistribution;
 import gov.dot.its.jpo.sdcsdw.Models.Destination;
 import gov.dot.its.jpo.sdcsdw.Models.DialogID;
-import gov.dot.its.jpo.sdcsdw.Models.SeqID;
+import gov.dot.its.jpo.sdcsdw.Models.SemiSequenceID;
 import gov.dot.its.jpo.sdcsdw.Models.ServiceRequest;
+import gov.dot.its.jpo.sdcsdw.Models.xmlhelpers.SemiSequenceIDXml;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -49,7 +50,7 @@ public class XerJaxbCodecTest extends TestCase {
 		assertEquals("0000000", serviceRequest.getGroupID());
 		assertEquals("E054E21B", serviceRequest.getRequestID());
 		assertEquals("46750", serviceRequest.getDestination().getPort());
-		assertEquals("svcReq", serviceRequest.getSeqID().getSeqId());
+		assertEquals(SemiSequenceID.SVC_REQ, serviceRequest.getSeqID());
 		assertEquals("advSitDatDist", serviceRequest.getDialogID().getValue());
 	}
 
@@ -59,9 +60,7 @@ public class XerJaxbCodecTest extends TestCase {
 		DialogID dialogID = DialogID.fromValue("advSitDatDist");
 		serviceRequest.setDialogID(dialogID);
 
-		SeqID seqID = new SeqID();
-		seqID.setSvcReq("");
-		serviceRequest.setSeqID(seqID);
+		serviceRequest.setSeqID(SemiSequenceID.SVC_REQ);
 
 		serviceRequest.setGroupID("0000000");
 		serviceRequest.setRequestID("E054E21B");

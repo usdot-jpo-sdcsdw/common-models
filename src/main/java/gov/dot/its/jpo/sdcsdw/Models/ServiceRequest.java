@@ -7,12 +7,14 @@ import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import gov.dot.its.jpo.sdcsdw.Models.xmlhelpers.SemiSequenceIDXml;
+
 @XmlRootElement(name = "ServiceRequest")
 @XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlType(propOrder = { "dialogID", "seqID", "groupID", "requestID", "destination" })
 public class ServiceRequest extends DialogMessage {
 	DialogID dialogID;
-	SeqID seqID;
+	SemiSequenceID seqID;
 	String groupID;
 	String requestID;
 	Destination destination;
@@ -21,7 +23,7 @@ public class ServiceRequest extends DialogMessage {
 		return this.dialogID;
 	}
 
-	public SeqID getSeqID() {
+	public SemiSequenceID getSeqID() {
 		return this.seqID;
 	}
 
@@ -42,7 +44,7 @@ public class ServiceRequest extends DialogMessage {
 	}
 
 	
-	public void setSeqID(SeqID seqID) {
+	public void setSeqID(SemiSequenceID seqID) {
 		this.seqID = seqID;
 	}
 

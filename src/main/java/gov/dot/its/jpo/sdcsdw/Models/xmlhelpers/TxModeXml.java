@@ -1,6 +1,12 @@
-package gov.dot.its.jpo.sdcsdw.Models;
+package gov.dot.its.jpo.sdcsdw.Models.xmlhelpers;
 
-public class BiTxMode {
+import javax.xml.bind.annotation.XmlTransient;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+public class TxModeXml {
+    private String txMode;
+    
 	private String alternating;
 	private String continuous;
 
@@ -12,6 +18,7 @@ public class BiTxMode {
     public void setAlternating (String alternating)
     {
         this.alternating = alternating;
+        txMode = "alternating";
     }
     
     public String getContinuous ()
@@ -22,8 +29,17 @@ public class BiTxMode {
     public void setContinuous (String continuous)
     {
         this.continuous = continuous;
+        txMode = "continuous";
     }
 
+    @XmlTransient
+    @JsonIgnore
+    public String getTxMode() {
+        return txMode;
+    }
+    
+    @XmlTransient
+    @JsonIgnore
 	public void setMode(int txMode) {
 		// TODO Auto-generated method stub
 		switch (txMode) {

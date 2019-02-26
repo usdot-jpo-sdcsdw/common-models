@@ -8,7 +8,7 @@ import gov.dot.its.jpo.sdcsdw.Models.xmlhelpers.Asn1BooleanXmlAdapter;
 @XmlType(propOrder = { "biType", "biPriority", "biDeliveryStart", "biDeliveryStop",
 		"biSignature", "biEncryption", "dsrcInst" })
 public class BroadcastInstructions {
-	private DsrcInst dsrcInst;
+	private DsrcInstructions dsrcInst;
 
 	private AdvisoryBroadcastType biType;
 
@@ -22,11 +22,11 @@ public class BroadcastInstructions {
 
 	private Boolean biSignature;
 
-	public DsrcInst getDsrcInst() {
+	public DsrcInstructions getDsrcInst() {
 		return dsrcInst;
 	}
 
-	public void setDsrcInst(DsrcInst dsrcInst) {
+	public void setDsrcInst(DsrcInstructions dsrcInst) {
 		this.dsrcInst = dsrcInst;
 	}
 

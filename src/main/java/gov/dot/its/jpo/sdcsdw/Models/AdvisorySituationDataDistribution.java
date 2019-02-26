@@ -10,6 +10,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import gov.dot.its.jpo.sdcsdw.Models.xmlhelpers.SemiSequenceIDXml;
+
 @XmlRootElement(name = "AdvisorySituationDataDistribution")
 @XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlType(name = "", propOrder = { "dialogID", "seqID", "groupID", "requestID", "recordCount", "bundleCount",
@@ -23,7 +25,7 @@ public class AdvisorySituationDataDistribution extends DialogMessage {
 
 	private String requestID;
 
-	private SeqID seqID;
+	private SemiSequenceID seqID;
 
 	private String bundleCount;
 
@@ -66,11 +68,11 @@ public class AdvisorySituationDataDistribution extends DialogMessage {
 	}
 
 	
-	public SeqID getSeqID() {
+	public SemiSequenceID getSeqID() {
 		return seqID;
 	}
 
-	public void setSeqID(SeqID seqID) {
+	public void setSeqID(SemiSequenceID seqID) {
 		this.seqID = seqID;
 	}
 

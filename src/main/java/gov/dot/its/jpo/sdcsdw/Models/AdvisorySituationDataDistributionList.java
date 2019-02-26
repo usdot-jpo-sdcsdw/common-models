@@ -5,6 +5,8 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import gov.dot.its.jpo.sdcsdw.Models.xmlhelpers.SemiSequenceIDXml;
+
 public class AdvisorySituationDataDistributionList extends DialogMessage{
 
 	
@@ -29,7 +31,7 @@ public class AdvisorySituationDataDistributionList extends DialogMessage{
 	}
 
 	@Override
-	public SeqID getSeqID() {
+	public SemiSequenceID getSeqID() {
 		// TODO Auto-generated method stub
 		return null;
 	}

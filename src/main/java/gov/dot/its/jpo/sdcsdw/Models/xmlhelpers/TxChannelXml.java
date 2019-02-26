@@ -1,12 +1,19 @@
-package gov.dot.its.jpo.sdcsdw.Models;
+package gov.dot.its.jpo.sdcsdw.Models.xmlhelpers;
 
-public class BiTxChannel {
-	private String ch178;
+import javax.xml.bind.annotation.XmlTransient;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+public class TxChannelXml {
+    private String txChannel;
+    
+
 	private String chControl;
 	private String chService;
 	private String ch172;
 	private String ch174;
 	private String ch176;
+    private String ch178;
 	private String ch180;
 	private String ch182;
 	private String ch184;
@@ -85,6 +92,14 @@ public class BiTxChannel {
 	}
 	
 
+	@XmlTransient
+	@JsonIgnore
+	public String getTxChannel() {
+	    return txChannel;
+	}
+	
+	@XmlTransient
+	@JsonIgnore
 	public void setChannel(int channel) {
 		switch (channel) {
 		case 0:
